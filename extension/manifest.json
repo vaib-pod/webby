@@ -4,7 +4,7 @@
   "description": "User-controlled, context-aware text, contrast, motion and focus adaptation with optional AI insights.",
   "version": "1.0.0",
   "permissions": ["storage", "activeTab"],
-  "host_permissions": ["http://127.0.0.1:3001/*"],
+  "host_permissions": ["https://webby-backend.onrender.com/*"],
   "background": {"service_worker": "background.js", "type": "module"},
   "content_scripts": [{
     "matches": ["http://*/*", "https://*/*"],

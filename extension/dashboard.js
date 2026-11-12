@@ -126,7 +126,7 @@ $('checkServer').addEventListener('click',async()=>{
   $('serverStatus').textContent='Checking local server…';
   const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),4000);
   try{
-    const res=await fetch('http://127.0.0.1:3001/api/health',{signal:controller.signal});
+    const res=await fetch('https://webby-backend.onrender.com/api/health',{signal:controller.signal});
     if(!res.ok)throw new Error('Backend returned an error');
     const json=await res.json();
     $('serverStatus').textContent=`Connected · ${json.aiConfigured?'AI key configured':'No AI key (rule-based fallback)'}`;
