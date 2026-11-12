@@ -5,7 +5,7 @@
 <h1 align="center">WEBBY</h1>
 
 <p align="center">
-  <strong>AI-powered adaptive accessibility for the web.</strong><br />
+  <strong>Adaptive accessibility for the web.</strong><br />
   A browser extension that makes websites easier to use, on your terms.
 </p>
 
@@ -13,7 +13,7 @@
   <img alt="Chrome Manifest V3" src="https://img.shields.io/badge/Chrome-Manifest%20V3-287A42?style=flat-square" />
   <img alt="Node.js 20+" src="https://img.shields.io/badge/Node.js-20%2B-287A42?style=flat-square" />
   <img alt="Local first" src="https://img.shields.io/badge/Privacy-Local--first-287A42?style=flat-square" />
-  <img alt="Optional AI" src="https://img.shields.io/badge/AI-Optional-287A42?style=flat-square" />
+  <img alt="AI integration planned" src="https://img.shields.io/badge/AI-Planned-287A42?style=flat-square" />
 </p>
 
 <p align="center"><em>“Don't adapt yourself to the website. Let the website adapt to you.”</em></p>
@@ -24,9 +24,9 @@
 
 Most websites offer the same reading experience to everyone. **WEBBY changes that.** It lets people adjust text, contrast, spacing, motion, and focus to suit their preferences—directly on the websites they already visit.
 
-WEBBY remembers these choices, supports website-specific settings, and provides an **Accessibility Twin** that responds to explicit user feedback. An optional AI engine can analyze a privacy-minimized description of a webpage and recommend safe, reversible improvements.
+WEBBY remembers these choices, supports website-specific settings, and provides a rule-based **Accessibility Twin** that responds to explicit user feedback. **AI is not currently integrated.** AI-assisted webpage analysis and recommendations are planned as a future extension.
 
-**No account required. No database required. Core accessibility controls work without AI.**
+**No account required. No database required. Current accessibility features use local, rule-based logic.**
 
 ## Features
 
@@ -36,8 +36,7 @@ WEBBY remembers these choices, supports website-specific settings, and provides 
 | **02** | **Personal accessibility profile** | Save default preferences and apply them across websites. |
 | **03** | **Per-website customization** | Keep different accessibility settings for different sites. |
 | **04** | **Accessibility Twin** | Turn feedback like “text too small” or “need more spacing” into remembered site-specific improvements. |
-| **05** | **AI-assisted recommendations** | With consent, request context-aware suggestions from an optional backend. |
-| **06** | **Privacy and control** | Keep preferences locally, validate AI actions, and undo or reset adaptations. |
+| **05** | **Privacy and control** | Keep preferences locally and undo or reset adaptations. |
 
 ## How it works
 
@@ -47,11 +46,9 @@ flowchart LR
     C[Popup & Dashboard] <--> D[Extension Service Worker]
     B <--> D
     D <--> E[(Local Preferences & Accessibility Twin)]
-    D -->|Optional, user-initiated analysis| F[Node.js API]
-    F -->|If configured| G[AI Provider]
 ```
 
-The extension applies rule-based changes in the browser. If AI analysis is enabled, WEBBY sends a **sanitized structural summary** rather than raw webpage text, form values, or HTML. Suggested actions are restricted to a predefined allowlist and validated before they are applied.
+The extension applies rule-based changes in the browser and stores preferences locally. The Accessibility Twin uses explicit feedback to adjust site-specific settings; it does not currently use an integrated AI model.
 
 ## Getting started
 
@@ -65,7 +62,7 @@ The extension applies rule-based changes in the browser. If AI analysis is enabl
 
 Open WEBBY's popup to adjust the current site, or select **Open dashboard** for global preferences, saved sites, Accessibility Twin insights, and privacy settings.
 
-> The extension's core features work immediately. The AI backend is optional.
+> The extension's current features work without an AI backend. AI integration is planned for a future extension.
 
 ### 2. Try the demonstration website
 
@@ -77,37 +74,18 @@ npm run demo
 
 Open **http://127.0.0.1:4173**. The included demo intentionally uses difficult-to-read text and animation so you can see WEBBY's adaptations in action.
 
-### 3. Enable optional AI recommendations
+## Future extension: AI integration
 
-Start the local backend in a separate terminal:
+AI-assisted recommendations are **planned, not an implemented feature of the current prototype**. The repository contains backend and AI-related groundwork for future development; these files and any AI-related interface controls do not indicate completed integration.
 
-```bash
-npm run server
-```
+The planned extension would:
 
-The API will be available at **http://127.0.0.1:3001**; its health endpoint is `/api/health`.
+- Analyze a privacy-minimized structural summary of a webpage to suggest context-aware accessibility improvements.
+- Require explicit consent and a user-initiated request before sharing page information.
+- Exclude raw webpage text, credentials, form values, and HTML from AI requests.
+- Restrict recommendations to validated, predefined actions that users can undo.
 
-For real AI-generated recommendations, provide an OpenAI API key **to the backend process** before starting it:
-
-**Windows PowerShell**
-
-```powershell
-$env:OPENAI_API_KEY="YOUR_API_KEY"
-$env:OPENAI_MODEL="gpt-4o-mini"
-npm run server
-```
-
-**macOS / Linux**
-
-```bash
-export OPENAI_API_KEY="YOUR_API_KEY"
-export OPENAI_MODEL="gpt-4o-mini"
-npm run server
-```
-
-In the extension, enable **AI analysis consent** and select **Analyze this page**. If the server or key is unavailable, WEBBY uses a clearly identified rule-based fallback.
-
-> **Never commit an API key** or place one in the Chrome extension. The sample `backend/.env.example` documents the variables; `.env` files are not automatically loaded by this project.
+Completing and validating the connection between the extension, backend, and AI provider remains future work. No API key or AI setup is needed to use the current accessibility features.
 
 ## Project structure
 
@@ -115,7 +93,7 @@ In the extension, enable **AI analysis consent** and select **Analyze this page*
 WEBBY_Complete_Prototype/
 ├── extension/
 │   ├── manifest.json          # Chrome Manifest V3
-│   ├── background.js          # Extension messages and AI requests
+│   ├── background.js          # Extension messages and future AI groundwork
 │   ├── content.js             # Page analysis and adaptations
 │   ├── content.css            # Accessibility styles on webpages
 │   ├── popup.*                # Quick-access extension interface
@@ -124,8 +102,8 @@ WEBBY_Complete_Prototype/
 │   ├── assets/                # Extension icons
 │   └── shared/                # Profiles, storage, and Twin logic
 ├── backend/
-│   ├── server.js              # Local JSON API
-│   ├── ai.js                  # AI recommendations and fallback
+│   ├── server.js              # Local API groundwork for future integration
+│   ├── ai.js                  # AI groundwork; not currently integrated
 │   └── .env.example           # Environment variable reference
 ├── demo/                      # Accessibility demonstration webpage
 ├── tests/                     # Automated tests
@@ -139,7 +117,7 @@ WEBBY_Complete_Prototype/
 | Command | Purpose |
 |---|---|
 | `npm run demo` | Serve the demonstration website on port `4173` |
-| `npm run server` | Start the local AI backend on port `3001` |
+| `npm run server` | Start the development backend on port `3001` (future AI integration groundwork) |
 | `npm run check` | Validate JavaScript syntax and extension metadata |
 | `npm test` | Run automated tests |
 | `npm run verify` | Run checks and automated tests together |
@@ -149,10 +127,9 @@ The project uses built-in Node.js functionality and has **no third-party npm dep
 ## Privacy by design
 
 - **Local-first:** Preferences, website overrides, and Twin feedback are stored in `chrome.storage.local`.
-- **User-controlled AI:** Analysis requires consent and a user-initiated action.
-- **Minimal data sharing:** AI analysis uses structural page information, not raw text, credentials, form input, or HTML.
-- **Constrained recommendations:** AI output cannot inject arbitrary JavaScript, HTML, or CSS.
 - **Reversible changes:** Users can disable adjustments or reset website preferences.
+
+Consent, minimal data sharing, and constrained AI recommendations are design requirements for the planned AI extension, not claims of completed AI integration.
 
 **Important:** The included backend is configured for local development and does not provide authentication or rate limiting. Secure it before exposing AI endpoints publicly. Website compatibility and accessibility outcomes should be verified on real pages; WEBBY is not a substitute for a full accessibility audit.
 
