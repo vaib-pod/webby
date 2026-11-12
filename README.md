@@ -139,7 +139,6 @@ Consent, minimal data sharing, and constrained AI recommendations are design req
 - [API contract](docs/API_CONTRACT.md) — requests, responses, and permitted actions
 - [Security and privacy](docs/SECURITY.md) — safeguards and limitations
 - [Testing guide](docs/TESTING.md) — validation and browser QA
-- [LLM handoff](docs/LLM_HANDOFF.md) — context for contributors and AI coding assistants
 - [Original proposal](docs/ORIGINAL_PROPOSAL.pdf) — project concept and vision
 
 ---
