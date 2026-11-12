@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WEBBY</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="topline"></div>
+  <div class="wrap">
+    <header class="popup-header row between">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M26.8 3.8C15.1 3.9 8.1 7.2 6 13.3c-1.8 5.2 1.5 9.3 6.4 9.3 6.8 0 13.1-6.6 14.4-18.8ZM5.3 27.3c5.2-8.7 11-13.6 17.9-17.4-8.5 2.6-14.1 7.1-19 14.9-.8 1.3.2 3.5 1.1 2.5Z"/></svg>
+        </div>
+        <div><strong>WEBBY</strong><small>AI-powered adaptive accessibility</small></div>
+      </div>
+      <span class="pill" id="statePill">Checking…</span>
+    </header>
+
+    <section class="card site-card" aria-label="Current website adaptation">
+      <div class="site-head">
+        <span class="control-icon spark" aria-hidden="true">✧</span>
+        <div class="site-head-copy">
+          <div class="section-title">Adaptive mode</div>
+          <p>Let WEBBY adapt this website for you</p>
+        </div>
+        <input id="siteEnabled" class="switch" type="checkbox" aria-label="Enable WEBBY on this site">
+      </div>
+      <div class="site-meta">
+        <span class="label">Current website</span>
+        <h1 id="host">Loading...</h1>
+        <p class="muted tiny" id="siteDescription">Checking this page</p>
+      </div>
+    </section>
+
+    <section class="card body-card settings-card" aria-label="Accessibility controls">
+      <div class="settings-heading"><span class="heading-icon" aria-hidden="true">✣</span><div>
+        <div class="section-title">Accessibility controls</div>
+        <p class="muted tiny">Make every page comfortable to read.</p>
+      </div></div>
+      <div class="control-setting field">
+        <span class="control-icon" aria-hidden="true">Aa</span>
+        <div class="control-copy"><div class="row between"><label for="fontScale">Text size</label><strong id="fontValue">110%</strong></div>
+          <input id="fontScale" type="range" class="range" min="100" max="150" step="5"></div>
+      </div>
+      <div class="control-setting field">
+        <span class="control-icon" aria-hidden="true">≡</span>
+        <div class="control-copy"><div class="row between"><label for="lineHeight">Line spacing</label><strong id="lineValue">1.60×</strong></div>
+          <input id="lineHeight" type="range" class="range" min="120" max="200" step="5"></div>
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">☾</span>
+        <div class="control-copy"><strong>Dark mode</strong><span>Switch this website to a dark appearance</span></div>
+        <input class="switch" id="darkMode" type="checkbox" aria-label="Dark mode">
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">◐</span>
+        <div class="control-copy"><strong>High-contrast text</strong><span>Make hard-to-read text clearer</span></div>
+        <input class="switch" id="contrast" type="checkbox" aria-label="High contrast">
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">▷</span>
+        <div class="control-copy"><strong>Reduce motion</strong><span>Minimize animations and transitions</span></div>
+        <input class="switch" id="motion" type="checkbox" aria-label="Reduce motion">
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">▣</span>
+        <div class="control-copy"><strong>Focus highlight</strong><span>Make keyboard focus easier to see</span></div>
+        <input class="switch" id="focus" type="checkbox" aria-label="Focus assist">
+      </div>
+      <div class="settings-actions row">
+        <button class="btn flex1" id="saveSite">Save for this site</button>
+        <button class="btn secondary" id="resetSite">Reset</button>
+      </div>
+    </section>
+
+    <section class="card body-card twin-card" aria-label="Accessibility Twin feedback">
+      <div class="row between"><div>
+        <div class="section-title">Accessibility Twin</div>
+        <p class="muted tiny">Help WEBBY learn from your choices.</p>
+      </div><span class="pill blue">✧ Learning</span></div>
+      <div class="feedback-grid">
+        <button data-feedback="text-too-small">Aa&nbsp; Bigger text</button>
+        <button data-feedback="need-more-spacing">≡&nbsp; More spacing</button>
+        <button data-feedback="increase-contrast">◐&nbsp; More contrast</button>
+        <button data-feedback="reduce-motion">▷&nbsp; Less motion</button>
+      </div>
+    </section>
+
+    <section class="card body-card ai-card" aria-label="Optional AI analysis">
+      <div class="row between"><div>
+        <div class="section-title">✦ AI suggestions</div>
+        <p class="muted tiny">Optional and privacy-conscious analysis</p>
+      </div><span id="aiPill" class="pill">Opt-in</span></div>
+      <label class="consent"><input type="checkbox" id="consent"><span>I agree to send a minimal structural page summary to the local backend and, if configured, an AI provider. No form values, page text, or full URL are sent.</span></label>
+      <button class="btn soft wide" id="analyze">Analyze this page</button>
+      <div id="aiOutput" class="mini-info hidden" aria-live="polite"></div>
+    </section>
+    <p role="status" aria-live="polite" id="notice" class="status"></p>
+    <footer class="popup-footer row between"><button class="linkbtn" id="dashboard">Open WEBBY dashboard <span aria-hidden="true">↗</span></button><span>Local-first · v1</span></footer>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

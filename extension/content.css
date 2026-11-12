@@ -1,0 +1,26 @@
+/* Changes are active only while WEBBY is enabled; never hide, reorder or replace controls. */
+html[data-webby-active="1"][data-webby-reduce-motion="1"] *,
+html[data-webby-active="1"][data-webby-reduce-motion="1"] *::before,
+html[data-webby-active="1"][data-webby-reduce-motion="1"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html[data-webby-active="1"][data-webby-focus="1"] :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #f59e0b !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px rgba(18, 26, 48, 0.5) !important;
+}
+
+
+/* Best-effort whole-page dark appearance. The root filter is removed as soon as
+   WEBBY is paused or Dark mode is switched off. Media is counter-filtered so
+   photographs, video, canvas content, SVG artwork and embedded pages retain
+   their original colors. Some complex sites may need site-specific tuning. */
+html[data-webby-active="1"][data-webby-dark-mode="1"] {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+html[data-webby-active="1"][data-webby-dark-mode="1"] :is(img, video, canvas, iframe, svg, object, embed) {
+  filter: invert(1) hue-rotate(180deg) !important;
+}

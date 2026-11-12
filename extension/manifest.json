@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "WEBBY – Adaptive Accessibility",
+  "description": "User-controlled, context-aware text, contrast, motion and focus adaptation with optional AI insights.",
+  "version": "1.0.0",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["http://127.0.0.1:3001/*"],
+  "background": {"service_worker": "background.js", "type": "module"},
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content.js"],
+    "css": ["content.css"],
+    "run_at": "document_idle",
+    "all_frames": false
+  }],
+  "action": {"default_popup": "popup.html", "default_title": "WEBBY accessibility", "default_icon": {"16":"assets/icon16.png","48":"assets/icon48.png"}},
+  "options_page": "dashboard.html",
+  "icons": {"16":"assets/icon16.png", "48":"assets/icon48.png", "128":"assets/icon128.png"}
+}
