@@ -67,6 +67,6 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   // Binding to loopback prevents unintended remote connections to a development server.
   const server = makeServer();
   const port = Number(process.env.PORT || 3001);
-  server.listen(port,'127.0.0.1', () =>
+  server.listen(port,'0.0.0.0', () =>
     console.log(`[WEBBY] backend on http://127.0.0.1:${port}; AI key ${process.env.OPENAI_API_KEY ? 'configured' : 'missing (offline fallback)'}`));
 }
