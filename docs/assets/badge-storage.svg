@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="162" height="28" viewBox="0 0 162 28" role="img" aria-label="Storage: Local-first">
+  <title>Storage: Local-first</title>
+  <path fill="#34423a" d="M0 0h74v28H0z"/>
+  <path fill="#267334" d="M74 0h88v28H74z"/>
+  <g fill="#fff" font-family="Verdana,Arial,sans-serif" font-size="12" text-anchor="middle">
+    <text x="37" y="18">Storage</text>
+    <text x="118" y="18">Local-first</text>
+  </g>
+</svg>

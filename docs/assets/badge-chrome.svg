@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="172" height="28" viewBox="0 0 172 28" role="img" aria-label="Chrome: Manifest V3">
+  <title>Chrome: Manifest V3</title>
+  <path fill="#34423a" d="M0 0h70v28H0z"/>
+  <path fill="#267334" d="M70 0h102v28H70z"/>
+  <g fill="#fff" font-family="Verdana,Arial,sans-serif" font-size="12" text-anchor="middle">
+    <text x="35" y="18">Chrome</text>
+    <text x="121" y="18">Manifest V3</text>
+  </g>
+</svg>

@@ -4,9 +4,9 @@
   <p><strong>A more comfortable web, on your terms.</strong></p>
   <p>Personal reading settings, colour vision support, and optional summaries and speech.<br>Built for Chrome. Designed around your preferences.</p>
   <p>
-    <img src="https://img.shields.io/badge/Chrome-Manifest_V3-267334?style=flat-square" alt="Chrome Manifest V3">
-    <img src="https://img.shields.io/badge/Storage-Local--first-267334?style=flat-square" alt="Local-first storage">
-    <img src="https://img.shields.io/badge/JavaScript-No_build_step-267334?style=flat-square" alt="JavaScript, no build step">
+    <img src="docs/assets/badge-chrome.svg" alt="Chrome Manifest V3" width="172" height="28">
+    <img src="docs/assets/badge-storage.svg" alt="Local-first storage" width="162" height="28">
+    <img src="docs/assets/badge-javascript.svg" alt="JavaScript, no build step" width="202" height="28">
   </p>
   <p><a href="#get-started">Get started</a> · <a href="#features">Features</a> · <a href="#summaries--read-aloud">Summaries &amp; read aloud</a> · <a href="#development">Development</a></p>
 </div>
