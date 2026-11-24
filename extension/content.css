@@ -1,0 +1,68 @@
+/* Changes are active only while WEBBY is enabled; never hide, reorder or replace controls. */
+html[data-webby-active="1"][data-webby-colour="1"] :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible {
+  outline: 3px solid #000 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px #fff !important;
+}
+/* Only during a synchronous style update, including restoring a paused page. */
+html[data-webby-updating="1"],
+html[data-webby-updating="1"] *,
+html[data-webby-updating="1"] *::before,
+html[data-webby-updating="1"] *::after {
+  transition: none !important;
+}
+html[data-webby-active="1"][data-webby-reduce-motion="1"] *,
+html[data-webby-active="1"][data-webby-reduce-motion="1"] *::before,
+html[data-webby-active="1"][data-webby-reduce-motion="1"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html[data-webby-active="1"][data-webby-focus="1"] :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #f59e0b !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px rgba(18, 26, 48, 0.5) !important;
+}
+
+
+/* Best-effort whole-page dark appearance. The root filter is removed as soon as
+   WEBBY is paused or Dark mode is switched off. Media is counter-filtered so
+   photographs, video, canvas content, SVG artwork and embedded pages retain
+   their original colors. Some complex sites may need site-specific tuning. */
+html[data-webby-active="1"][data-webby-dark-mode="1"] {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+html[data-webby-active="1"][data-webby-dark-mode="1"] :is(img, video, canvas, iframe, svg, object, embed) {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* The top-layer ruler is decorative, never a hit target or accessibility node. */
+[data-webby-ruler] {
+  all: initial !important;
+  display: block !important;
+  position: fixed !important;
+  inset: 0 auto auto 0 !important;
+  width: 100vw !important;
+  height: 56px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid rgba(230,195,0,.45) !important;
+  border-bottom: 1px solid rgba(230,195,0,.45) !important;
+  box-sizing: border-box !important;
+  background: rgba(255,235,0,.3) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 2147483647 !important;
+}
+[data-webby-ruler]::backdrop { display: none !important; pointer-events: none !important; }
+
+html[data-webby-active="1"][data-webby-calm="1"] [data-webby-ruler] {
+  background: rgba(245,202,94,.22) !important;
+  border-color: rgba(178,132,47,.3) !important;
+}
+html[data-webby-active="1"][data-webby-calm="1"] ::selection {
+  background: #f2d898 !important;
+  color: #473c30 !important;
+}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WEBBY</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="topline"></div>
+  <div class="wrap">
+    <header class="popup-header row between">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M26.8 3.8C15.1 3.9 8.1 7.2 6 13.3c-1.8 5.2 1.5 9.3 6.4 9.3 6.8 0 13.1-6.6 14.4-18.8ZM5.3 27.3c5.2-8.7 11-13.6 17.9-17.4-8.5 2.6-14.1 7.1-19 14.9-.8 1.3.2 3.5 1.1 2.5Z"/></svg>
+        </div>
+        <div><strong>WEBBY</strong><small>Comfortable reading, your way</small></div>
+      </div>
+      <span class="pill" id="statePill">Checking…</span>
+    </header>
+
+    <section class="card body-card presets-card" aria-label="Quick Modes">
+      <div class="row between"><div class="section-title">Quick Modes</div><span id="presetState" class="pill" aria-live="polite">Custom</span></div>
+      <div class="preset-grid">
+        <button class="preset-button" id="darkMode" aria-pressed="false" disabled><strong>Dark Mode</strong><small>Dark page appearance</small></button>
+        <button class="preset-button" id="focusReading" aria-pressed="false" disabled><strong>Reading Mode</strong><small>Text-only view</small></button>
+        <button class="preset-button" data-preset="low-vision" aria-pressed="false" disabled><strong>Low Vision</strong><small>145% text · high contrast</small></button>
+        <button class="preset-button" data-preset="calm" aria-pressed="false" disabled><strong>Calm Mode</strong><small>Warm tones · less motion</small></button>
+      </div>
+    </section>
+
+    <details class="card body-card settings-card collapsible-card">
+      <summary class="section-toggle"><span class="settings-heading"><span class="heading-icon" aria-hidden="true">✣</span><span class="section-title">Accessibility controls</span></span><span class="section-chevron" aria-hidden="true"></span></summary>
+      <div class="section-content">
+      <p class="muted tiny">Make every page comfortable to read.</p>
+      <div class="control-setting field">
+        <span class="control-icon" aria-hidden="true">Aa</span>
+        <div class="control-copy"><div class="row between"><label for="fontScale">Text size</label><strong id="fontValue">110%</strong></div>
+          <input id="fontScale" type="range" class="range" min="100" max="150" step="5"></div>
+      </div>
+      <div class="control-setting field">
+        <span class="control-icon" aria-hidden="true">≡</span>
+        <div class="control-copy"><div class="row between"><label for="lineHeight">Line spacing</label><strong id="lineValue">1.60×</strong></div>
+          <input id="lineHeight" type="range" class="range" min="120" max="200" step="5"></div>
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">◐</span>
+        <div class="control-copy"><strong>High-contrast text</strong><span>Make hard-to-read text clearer</span></div>
+        <input class="switch" id="contrast" type="checkbox" aria-label="High contrast">
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">▷</span>
+        <div class="control-copy"><strong>Reduce motion</strong><span>Minimize animations and transitions</span></div>
+        <input class="switch" id="motion" type="checkbox" aria-label="Reduce motion">
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">▣</span>
+        <div class="control-copy"><strong>Focus highlight</strong><span>Make keyboard focus easier to see</span></div>
+        <input class="switch" id="focus" type="checkbox" aria-label="Focus assist">
+      </div>
+      <div class="toggle control-setting">
+        <span class="control-icon" aria-hidden="true">↔</span>
+        <div class="control-copy"><strong>Reading Ruler</strong><span>Follow your pointer or keyboard focus</span></div>
+        <input class="switch" id="readingRuler" type="checkbox" aria-label="Reading Ruler" disabled>
+      </div>
+      <p class="muted tiny" id="toolsStatus" role="status" aria-live="polite">Local reading tools. No content is uploaded.</p>
+      <button class="btn soft wide" id="colourVision">Colour Vision Support</button>
+      <p class="muted tiny">Compare colour profiles or explore a local visual activity.</p>
+      <div class="settings-actions row">
+        <button class="btn flex1" id="saveSite">Save for this site</button>
+        <button class="btn secondary" id="resetSite">Reset</button>
+      </div>
+      </div>
+    </details>
+
+    <details class="card body-card reading-card collapsible-card">
+      <summary class="section-toggle"><span class="section-title">Summarize &amp; read aloud</span><span class="section-chevron" aria-hidden="true"></span></summary>
+      <div class="section-content">
+      <p class="muted tiny">Preview up to 12,000 characters from this page. Review or edit the text before sharing it.</p>
+      <button class="btn soft wide" id="loadReading">Load page text for preview</button>
+      <label for="readingText">Text to summarize or read</label>
+      <textarea id="readingText" rows="5" maxlength="12000" placeholder="Load the page text first." disabled></textarea>
+      <p id="readingStatus" class="muted tiny" role="status" aria-live="polite"></p>
+      <label class="consent"><input type="checkbox" id="readingConsent"><span>Allow text to be sent for summaries and read-aloud when I click a button. Summaries use the configured provider; speech uses Gnani.</span></label>
+      <button class="btn soft wide" id="summarize" disabled>Summarize (opens persistent tab)</button>
+      <div id="readingSummary" class="mini-info hidden" aria-live="polite"></div>
+      <div class="row reading-actions">
+        <button class="btn secondary flex1" id="readText" disabled>Read text aloud</button>
+        <button class="btn secondary flex1" id="readSummary" disabled>Read summary</button>
+      </div>
+      <div class="row reading-actions"><button class="btn secondary flex1" id="openReadingWorkspace">Open reading workspace</button><button class="btn secondary" id="clearReading">Clear saved</button></div>
+      <button class="btn secondary" id="stopReading" disabled>Stop</button>
+      <audio id="readingAudio" controls class="hidden" aria-label="Gnani speech playback"></audio>
+      <p class="muted tiny">Summaries and speech run in a separate persistent tab so closing this popup does not interrupt them. Your text and completed summary are kept for this browser session only; consent resets when reopened.</p>
+      </div>
+    </details>
+    <p role="status" aria-live="polite" id="notice" class="status"></p>
+    <footer class="popup-footer row between"><button class="linkbtn" id="dashboard">Open WEBBY dashboard <span aria-hidden="true">↗</span></button><span>Local-first · v1</span></footer>
+  </div>
+  <script type="module" src="popup.js"></script>
+  <script type="module" src="reading-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "plates": [
+    {
+      "id": "plate-01",
+      "path": "assets/colourblind/plate-01.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "12"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "f55de6152c00c63c60943872003f238c1c5447e438108344e387743fb88511fb"
+    },
+    {
+      "id": "plate-02",
+      "path": "assets/colourblind/plate-02.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "8"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "1634ac6a7e74698e65c7e248d48a89292df8027744b1c9cac023dd67c0869df0"
+    },
+    {
+      "id": "plate-03",
+      "path": "assets/colourblind/plate-03.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "29"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "c9c4fe742509cfe04a7c77b9aff60b2c205303c8af4323c2bccf1fbf55bbd6b1"
+    },
+    {
+      "id": "plate-04",
+      "path": "assets/colourblind/plate-04.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "5"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "b6e63d8d976924666dd9fbe9e583ea67e58154260ca7c7e32688d99def04ef40"
+    },
+    {
+      "id": "plate-05",
+      "path": "assets/colourblind/plate-05.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "3"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "46ec768217864b9dac55557f83361e62d25c83368f878a0f54e2f792eee97492"
+    },
+    {
+      "id": "plate-06",
+      "path": "assets/colourblind/plate-06.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "15"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "9d9e94b3140be8aaa6b4f77fd067423f7b50bf81185eeafd159e812d39061249"
+    },
+    {
+      "id": "plate-07",
+      "path": "assets/colourblind/plate-07.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "6"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "933b5c86d1d104310321f9eebdba805d2672ca5d437aec8800a0a3e56ca0dff2"
+    },
+    {
+      "id": "plate-08",
+      "path": "assets/colourblind/plate-08.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "45"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "edf161a9a43b6211ee0a09a5b6bd4bf62034747539b0f54a53dde8b88e63ffc2"
+    },
+    {
+      "id": "plate-09",
+      "path": "assets/colourblind/plate-09.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "73"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "bec5acb9f78488096f5c3ffe30957c65403c50d1585211d7ab24ca1dc123d56e"
+    },
+    {
+      "id": "plate-10",
+      "path": "assets/colourblind/plate-10.png",
+      "scored": true,
+      "verification": "verified",
+      "expectedAnswers": [
+        "26"
+      ],
+      "source": "User-confirmed visual and answer-key verification, 2026-11-24. Non-clinical activity only; no validated diagnostic interpretation metadata supplied.",
+      "sha256": "eeea22477ba91db6d9d73f7e8bdfdad13c60ad9c2c1bcbe6dce93c86cf00e3ce"
+    }
+  ]
+}

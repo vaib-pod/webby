@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WEBBY — Summarize &amp; Read Aloud</title>
+  <link rel="icon" href="assets/icon48.png">
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="reading-workspace.css">
+</head>
+<body>
+  <div class="topline"></div>
+  <main class="wrap reader-workspace">
+    <header class="popup-header row between">
+      <div class="brand"><img src="assets/icon48.png" width="40" height="40" alt=""><div><strong>WEBBY</strong><small>Persistent reading workspace</small></div></div>
+      <a class="btn secondary" href="dashboard.html">Dashboard</a>
+    </header>
+    <section class="card body-card reading-card">
+      <div class="section-title">Summarize &amp; read aloud</div>
+      <p class="muted">This tab stays open when the WEBBY popup closes. Your text and finished summary remain available in the popup for this browser session, until cleared or the source tab is closed.</p>
+      <button class="btn soft wide" id="loadReading">Load page text for preview</button>
+      <label for="readingText">Text to summarize or read</label>
+      <textarea id="readingText" rows="10" maxlength="12000" placeholder="Load the page text first." disabled></textarea>
+      <p id="readingStatus" class="muted tiny" role="status" aria-live="polite"></p>
+      <label class="consent"><input type="checkbox" id="readingConsent"><span>Allow this text to be sent to the configured provider when I choose Summarize or Read aloud. Playback stays in this tab.</span></label>
+      <button class="btn soft wide" id="summarize" disabled>Summarize</button>
+      <div id="readingSummary" class="mini-info hidden" aria-live="polite"></div>
+      <div class="row reading-actions">
+        <button class="btn secondary flex1" id="readText" disabled>Read text aloud</button>
+        <button class="btn secondary flex1" id="readSummary" disabled>Read summary</button>
+      </div>
+      <div class="row reader-footer-actions">
+        <button class="btn secondary" id="stopReading" disabled>Stop</button>
+        <button class="btn secondary" id="clearReading">Clear saved text &amp; summary</button>
+      </div>
+      <audio id="readingAudio" controls class="hidden" aria-label="Speech playback"></audio>
+    </section>
+    <p class="muted tiny">The source page must remain open. WEBBY does not share any content until you explicitly start a provider request. Audio stops when this tab closes.</p>
+  </main>
+  <script type="module" src="reading-ui.js"></script>
+</body>
+</html>

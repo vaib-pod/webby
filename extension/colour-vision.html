@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-webby-assessment>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Colour Vision Support — WEBBY</title><link rel="icon" href="assets/icon48.png"><link rel="stylesheet" href="ui.css"><link rel="stylesheet" href="colour-vision.css"></head>
+<body>
+  <div class="topline"></div>
+  <main class="colour-workspace">
+    <header class="colour-header"><a class="brand" href="dashboard.html"><img src="assets/icon48.png" width="42" height="42" alt=""><strong>WEBBY</strong></a><button class="btn secondary" id="openSettings">Colour settings</button></header>
+    <h1 id="screenTitle" tabindex="-1">Colour Vision Support</h1>
+    <p id="message" role="status" aria-live="polite"></p>
+    <section id="pathScreen" class="screen" aria-label="Choose your path">
+      <p>Let's make website colours easier for you to distinguish.</p>
+      <div class="path-grid">
+        <article class="card"><h2>I Know My Colour Vision Type</h2><p>Choose a colour profile based on your existing knowledge.</p><button class="btn" id="selectType">Select My Type</button></article>
+        <article class="card"><h2>Explore My Colour Vision</h2><p>Try a short visual activity to explore which colour combinations may be difficult to distinguish.</p><button class="btn" id="startAssessment">Start Assessment</button></article>
+      </div>
+      <p class="local-note">Your choices stay on this device. This activity is not a medical diagnosis.</p>
+    </section>
+    <section id="manualScreen" class="screen hidden card" aria-label="Manual selection">
+      <label for="visionType">Choose the description that fits your existing knowledge</label>
+      <select id="visionType"></select>
+      <p id="recommendation">Compare the palettes below and choose what feels clearest.</p>
+      <p class="local-note">The suggested palette is a starting point, not a treatment or a guarantee. People with the same colour-vision type may prefer different palettes. Your type is not saved.</p>
+    </section>
+    <section id="assessmentScreen" class="screen hidden card" aria-label="Colour vision activity">
+      <p class="local-note">Use comfortable lighting and your usual screen brightness. Turn off external colour filters for this activity. WEBBY adaptations do not run on this page. Answers stay here until scoring or leaving the activity.</p>
+      <p id="keyStatus" role="status"></p>
+      <p id="questionProgress" aria-live="polite"></p><progress id="questionMeter" aria-label="Question progress"></progress>
+      <div class="plate-frame"><img id="plateImage" alt="Colour plate for the current question"></div>
+      <p id="imageStatus" role="status"></p>
+      <form id="answerForm" novalidate>
+        <label for="plateAnswer">What number do you see?</label>
+        <input id="plateAnswer" type="text" inputmode="numeric" pattern="[0-9]{1,6}" maxlength="6" autocomplete="off" aria-describedby="answerHelp answerStatus">
+        <p id="answerHelp">Enter digits only, or choose “I can't see a number”. You may review unanswered questions before submitting.</p>
+        <p id="answerStatus" role="status"></p>
+        <button class="btn secondary" type="button" id="unableAnswer" aria-pressed="false">I can't see a number</button>
+        <div class="actions"><button class="btn secondary" type="button" id="previousQuestion">Previous</button><button class="btn" type="submit" id="nextQuestion">Next</button><button class="btn secondary" type="button" id="reviewAnswers">Review answers</button></div>
+      </form>
+    </section>
+    <section id="reviewScreen" class="screen hidden card" aria-label="Review answers">
+      <p>Check your answers. Select a question to change it.</p><ol id="answerReview"></ol>
+      <p id="reviewStatus" role="status"></p><button class="btn" id="submitAssessment" disabled>Submit activity</button>
+      <button class="btn secondary" id="returnToQuestion">Back to questions</button>
+    </section>
+    <section id="resultsScreen" class="screen hidden card" aria-label="Activity results">
+      <p id="resultSummary" class="result-summary"></p><dl id="resultCounts" class="result-counts"></dl>
+      <p>This is not a medical diagnosis. These digital plates are not a validated clinical test. Screen calibration, brightness, colour filters, lighting and image quality can affect the outcome. An eye-care professional can assess colour vision.</p>
+      <p>Try Blue &amp; amber first, or choose another palette. Your responses do not determine a colour-vision type, and you can override this suggestion.</p>
+      <div class="actions"><button class="btn secondary" id="previewAdaptations">Preview Adaptations</button><button class="btn secondary" id="retakeAssessment">Retake Assessment</button></div>
+    </section>
+    <section id="settingsScreen" class="screen hidden card" aria-label="Saved colour settings">
+      <div class="row between"><label for="colourEnabled">Enable colour support</label><input type="checkbox" class="switch" id="colourEnabled" disabled></div>
+      <p id="savedPreference"></p><p id="applicationStatus" role="status"></p><p>Compare alternatives below and apply your choice. WEBBY's pause settings also pause colour support. In Dark Mode, the palette follows the page's dark appearance.</p>
+      <div class="actions"><button class="btn secondary" id="changeType">Change my selection</button><button class="btn secondary" id="settingsRetake">Retake Assessment</button><button class="btn danger" id="clearPreference">Clear colour preferences</button></div>
+    </section>
+    <section id="paletteEditor" class="hidden" aria-labelledby="paletteTitle">
+      <h2 id="paletteTitle" tabindex="-1">Compare colour profiles</h2>
+      <p>Choose a palette using the radio buttons. Every option can underline links in readable prose (without modifying search or navigation links), add clear state outlines, labelled chart examples and warning text.</p>
+      <fieldset><legend>Choose your preferred palette</legend><div id="paletteOptions" class="palette-grid"></div></fieldset>
+      <p class="local-note">Website support is best effort. Photos, video and artwork are preserved. Chart colours and patterns apply only to labelled HTML series explicitly marked for WEBBY; arbitrary canvas and image charts are not transformed.</p>
+      <div class="actions"><button class="btn" id="applyPreference" disabled>Apply to Websites</button><button class="btn secondary" id="resetSelection">Reset selection</button></div>
+    </section>
+    <footer class="actions"><button class="btn secondary hidden" id="backToPaths">Back to choices</button><a href="dashboard.html#preferences">Back to WEBBY preferences</a></footer>
+  </main>
+  <script type="module" src="colour-vision.js"></script>
+</body></html>

@@ -1,0 +1,19 @@
+{
+  "name": "webby-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "WEBBY - local-first, context-aware accessibility browser extension MVP",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node tools/check.js",
+    "demo": "node tools/serve-demo.js",
+    "server": "node backend/server.js",
+    "providers:check": "node tools/check-providers.js",
+    "browser:check": "node tools/browser-check.js",
+    "extension:check": "node tools/extension-check.js",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {"node": ">=20.12"},
+  "license": "MIT"
+}

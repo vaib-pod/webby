@@ -1,0 +1,12 @@
+/* Dedicated, persistent companion tab — does not modify the popup itself. */
+body { width: auto !important; min-width: 0; min-height: 100vh; }
+.reader-workspace { width: min(780px, 100%); max-width: 780px; margin: 28px auto; padding: 16px 20px 45px; }
+.reader-workspace .reading-card { display: block; }
+.reader-workspace .section-title { margin-bottom: 12px; }
+.reader-workspace textarea { min-height: 170px; width: 100%; box-sizing: border-box; }
+.reader-workspace #readingSummary { white-space: pre-wrap; overflow-wrap: anywhere; max-height: none; }
+.reader-workspace #readingAudio { width: 100%; margin-top: 14px; }
+.reader-workspace .reader-footer-actions { justify-content: flex-start; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.reader-workspace .brand { align-items: center; }
+.reader-workspace .brand img { object-fit: contain; border-radius: 8px; }
+@media (max-width: 540px) { .reader-workspace { margin: 0 auto; padding: 12px; } .reader-workspace .reading-actions { flex-wrap: wrap; } }

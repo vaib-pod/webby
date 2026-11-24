@@ -1,0 +1,99 @@
+/* WEBBY Sap Green UI theme — shared extension popup + options dashboard.
+   Visual styles only: no change to storage, API, accessibility or AI behavior. */
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  --sap-bg: #c9e7bc;
+  --sap-deep: #184b25;
+  --sap-primary: #267334;
+  --sap-primary-hover: #1e5d2a;
+  --sap-secondary: #55a351;
+  --sap-pale: #eaf7e5;
+  --sap-mist: #f4fbf0;
+  --ink: #173d21;
+  --muted: #536e57;
+  --line: #dcead7;
+  --blue: #267334;
+  --blue-pale: #e7f4e1;
+  --surface: #fffefc;
+  --shadow: 0 12px 34px rgba(31, 88, 40, .11);
+  background: var(--sap-bg);
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .5; }
+:focus-visible { outline: 3px solid #c06819; outline-offset: 3px; }
+::selection { background: #94d28f; color: #11391e; }
+.topline { height: 5px; background: var(--sap-primary); }
+.brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.brand-icon {
+  width: 45px; height: 45px; flex: none; display: grid; place-items: center;
+  border-radius: 15px; background: #e9f7e4; color: var(--sap-primary);
+  border: 1px solid #c8e6bd;
+}
+.brand-icon svg { width: 28px; height: 28px; fill: currentColor; display: block; }
+.brand strong { display: block; color: #153a20; font-size: 21px; font-weight: 850; letter-spacing: -.8px; }
+.brand small { display: block; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.muted { color: var(--muted); }
+.tiny { font-size: 12px; line-height: 1.5; }
+.row { display: flex; align-items: center; gap: 12px; }
+.between { justify-content: space-between; }
+.flex1 { flex: 1; }
+.card {
+  background: var(--surface); border: 1px solid #e5f0df;
+  border-radius: 21px; box-shadow: var(--shadow);
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 6px; border-radius: 99px;
+  padding: 6px 11px; font-size: 11px; font-weight: 750;
+  background: #e9f3e5; color: #3c6c44; white-space: nowrap;
+}
+.pill.ok { background: #d9f2d4; color: #1b642f; }
+.pill.warn { background: #fff0d5; color: #80500f; }
+.pill.blue { background: #e6f5e1; color: #2d713c; }
+.btn {
+  border: 1px solid transparent; color: #fff; background: var(--sap-primary);
+  border-radius: 13px; padding: 12px 17px; font-weight: 750; font-size: 13px;
+  transition: background-color .14s ease, box-shadow .14s ease;
+}
+.btn:hover:not(:disabled) { background: var(--sap-primary-hover); box-shadow: 0 6px 12px rgba(28, 96, 36, .16); }
+.btn.secondary { background: #fff; color: var(--sap-deep); border-color: #c9e2c5; }
+.btn.secondary:hover:not(:disabled) { background: #eaf7e5; }
+.btn.soft { background: #e6f4df; color: #1d602a; border-color: #d5eacb; }
+.btn.soft:hover:not(:disabled) { background: #d8eed0; }
+.btn.danger { background: #fff1f0; color: #a02e2c; border-color: #f2d1ce; }
+.btn.danger:hover:not(:disabled) { background: #ffe5e3; }
+.btn.small { padding: 9px 13px; font-size: 12px; }
+.btn.wide { width: 100%; }
+.switch {
+  appearance: none; -webkit-appearance: none; position: relative; width: 48px; height: 27px;
+  flex: none; background: #d6dfd5; border: 1px solid #cad8c8;
+  border-radius: 99px; cursor: pointer; transition: background-color .14s ease;
+}
+.switch:checked { background: #388f44; border-color: #388f44; }
+.switch::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 19px; height: 19px;
+  border-radius: 50%; background: #fff; box-shadow: 0 2px 4px #0002;
+  transition: transform .14s ease;
+}
+.switch:checked::after { transform: translateX(20px); }
+.range { width: 100%; accent-color: #30813b; cursor: pointer; }
+.field { display: grid; gap: 8px; }
+.field label { color: var(--ink); font-weight: 700; font-size: 13px; }
+.field .hint { font-size: 11px; color: var(--muted); }
+.divider { height: 1px; background: var(--line); margin: 15px 0; }
+.label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.3px; color: #658267; font-weight: 850; }
+.error { color: #ae2f31; }
+.success { color: #206a33; }
+.hidden { display: none !important; }
+.mini-info {
+  padding: 12px 14px; border-radius: 13px; background: #edf8e9; color: #47694c;
+  font-size: 12px; line-height: 1.55;
+}
+.status { min-height: 18px; font-size: 12px; line-height: 1.5; }
+.section-title { font-size: 17px; font-weight: 800; letter-spacing: -.4px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
